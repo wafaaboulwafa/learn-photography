@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import content from "../constants/content";
 import ParagraphImage from "../components/ParagraphImage";
 import ParagraphTitle from "../components/ParagraphTitle";
