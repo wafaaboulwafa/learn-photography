@@ -24,6 +24,9 @@ const Chapter = (chapterContent) => {
             </React.Fragment>
           ))}
       </ScrollView>
+      <View style={styles.adsContainer}>
+        <BannerView />
+      </View>
     </SafeAreaView>
   );
 };
@@ -34,6 +37,10 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     padding: 20,
+    flexGrow: 1,
+  },
+  adsContainer: {
+    height: 100,
   },
 });
 

@@ -1,7 +1,14 @@
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Drawer } from "expo-router/drawer";
+import mobileAds from "react-native-google-mobile-ads";
 
 export default function RootLayout() {
+  useEffect(() => {
+    (async () => {
+      await mobileAds().initialize();
+    })();
+  });
+
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Drawer
