@@ -1,14 +1,11 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, View, Text } from "react-native";
-import content from "../constants/content";
+import { SafeAreaView, StyleSheet } from "react-native";
 import ParagraphImage from "./paragraphImage";
 import ParagraphTitle from "./paragraphTitle";
 import Paragraph from "./paragraph";
 import { ScrollView } from "react-native-gesture-handler";
 
-const Chapter = (id) => {
-  const chapterContent = content.find((r) => r.id === id);
-
+const Chapter = (chapterContent) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollContainer}>

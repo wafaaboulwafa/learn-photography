@@ -4,32 +4,36 @@ import { Drawer } from "expo-router/drawer";
 export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <Drawer>
+      <Drawer
+        screenOptions={{
+          drawerPosition: "right",
+        }}
+      >
         <Drawer.Screen
           name="index"
           options={{
-            drawerLabel: "index",
+            drawerLabel: "الرئيسية",
             title: "الرئيسية",
           }}
         />
         <Drawer.Screen
           name="chapter01"
           options={{
-            drawerLabel: "Chapter 01",
-            title: "مقدمة في التصوير",
+            drawerLabel: "مدخل",
+            title: "مدخل",
           }}
         />
         <Drawer.Screen
           name="chapter02"
           options={{
-            drawerLabel: "Chapter 02",
+            drawerLabel: "مقدمة في التصوير",
             title: "مقدمة في التصوير",
           }}
         />
         <Drawer.Screen
           name="chapter03"
           options={{
-            drawerLabel: "Chapter 03",
+            drawerLabel: "مقدمة في التصوير",
             title: "مقدمة في التصوير",
           }}
         />

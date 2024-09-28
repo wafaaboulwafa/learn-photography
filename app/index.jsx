@@ -11,14 +11,14 @@ const Index = () => {
           pathname: "chapter01",
         }}
       >
-        Chapter 1
+        مقدمة
       </Link>
       <Link
         href={{
           pathname: "chapter02",
         }}
       >
-        Chapter 2
+        مدخل في التصوير
       </Link>
       <Link
         href={{
@@ -34,8 +34,8 @@ const Index = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 20,
   },
-  text: {},
 });
 
 export default Index;
