@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "learn-photography",
+    "name": "تعلم التصوير الفوتوغرافي",
     "slug": "learn-photography",
     "main": "expo-router/entry",
     "scheme": "com.wafaaboulwafa.learnphotography",
