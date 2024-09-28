@@ -8,7 +8,7 @@ export default function RootLayout() {
         <Drawer.Screen
           name="index"
           options={{
-            drawerLabel: "Home",
+            drawerLabel: "index",
             title: "الرئيسية",
           }}
         />
@@ -23,6 +23,13 @@ export default function RootLayout() {
           name="chapter02"
           options={{
             drawerLabel: "Chapter 02",
+            title: "مقدمة في التصوير",
+          }}
+        />
+        <Drawer.Screen
+          name="chapter03"
+          options={{
+            drawerLabel: "Chapter 03",
             title: "مقدمة في التصوير",
           }}
         />

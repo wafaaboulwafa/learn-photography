@@ -12,8 +12,12 @@ const Paragraph = ({ value }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginBottom: 20,
   },
-  text: {},
+  text: {
+    fontSize: 18,
+    lineHeight: 35,
+  },
 });
 
 export default Paragraph;

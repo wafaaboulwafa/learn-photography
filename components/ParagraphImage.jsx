@@ -4,7 +4,7 @@ import { View, Image, StyleSheet } from "react-native";
 const ParagraphImage = ({ value }) => {
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={{ path: value }} />
+      <Image resizeMode="contain" style={styles.image} source={value} />
     </View>
   );
 };
@@ -13,7 +13,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  image: {},
+  image: {
+    width: "100%",
+  },
 });
 
 export default ParagraphImage;

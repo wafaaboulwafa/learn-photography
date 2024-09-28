@@ -77,7 +77,7 @@ export default [
       },
       {
         type: "image",
-        value: "1-camera.png",
+        value: require("../assets/chapters/3/1-camera.png"),
       },
       {
         type: "paragraph",
@@ -88,14 +88,10 @@ export default [
         type: "header",
         value: "",
       },
-      {
-        type: "image",
-        value: "",
-      },
     ],
   },
   {
-    id: 2,
+    id: 5,
     title: "تكوين المشهد Image Composition",
     paragraphs: [
       {
@@ -113,7 +109,7 @@ export default [
     ],
   },
   {
-    id: 3,
+    id: 6,
     title: "خصائص الضوء و أنواعه Light Properties",
     paragraphs: [
       {
@@ -131,7 +127,7 @@ export default [
     ],
   },
   {
-    id: 4,
+    id: 7,
     title: "مثلث التعريض الضوئي Exposure Triangle",
     paragraphs: [
       {
@@ -149,7 +145,7 @@ export default [
     ],
   },
   {
-    id: 5,
+    id: 8,
     title: "موازنة اللون الأبيض White Balance",
     paragraphs: [
       {
@@ -167,7 +163,7 @@ export default [
     ],
   },
   {
-    id: 6,
+    id: 9,
     title: "مقياس الضوء Metering Mode",
     paragraphs: [
       {
@@ -185,7 +181,7 @@ export default [
     ],
   },
   {
-    id: 7,
+    id: 10,
     title: "التركيز و خصائصه Focus",
     paragraphs: [
       {
@@ -203,7 +199,7 @@ export default [
     ],
   },
   {
-    id: 8,
+    id: 11,
     title: "فلاش الكاميرا Speed light",
     paragraphs: [
       {
@@ -221,7 +217,7 @@ export default [
     ],
   },
   {
-    id: 9,
+    id: 12,
     title: "عدسات الكاميرا Camera Lens",
     paragraphs: [
       {
@@ -239,7 +235,7 @@ export default [
     ],
   },
   {
-    id: 10,
+    id: 13,
     title: "معالجة الصور ببرنامج لايت روم Light room",
     paragraphs: [
       {
@@ -257,7 +253,7 @@ export default [
     ],
   },
   {
-    id: 11,
+    id: 14,
     title: "محاور التصوير الفوتوغرافي",
     paragraphs: [
       {
@@ -275,7 +271,7 @@ export default [
     ],
   },
   {
-    id: 12,
+    id: 15,
     title: "تصوير الطبيعة Landscape Photography",
     paragraphs: [
       {
@@ -293,7 +289,7 @@ export default [
     ],
   },
   {
-    id: 13,
+    id: 16,
     title: "التصوير الليلي Night Photography",
     paragraphs: [
       {
@@ -311,7 +307,7 @@ export default [
     ],
   },
   {
-    id: 14,
+    id: 17,
     title: "تصوير البورتريت Portrait Photography",
     paragraphs: [
       {
@@ -329,7 +325,7 @@ export default [
     ],
   },
   {
-    id: 15,
+    id: 18,
     title: "التصوير الصحفي Photo Journalist",
     paragraphs: [
       {
@@ -347,7 +343,7 @@ export default [
     ],
   },
   {
-    id: 16,
+    id: 19,
     title: "تصوير الرياضة Sport Photography",
     paragraphs: [
       {
@@ -365,7 +361,7 @@ export default [
     ],
   },
   {
-    id: 17,
+    id: 20,
     title: "تصوير الحيوانات Animals Photography",
     paragraphs: [
       {
@@ -383,7 +379,7 @@ export default [
     ],
   },
   {
-    id: 18,
+    id: 21,
     title: "تصوير الزهور Flowers Photography",
     paragraphs: [
       {

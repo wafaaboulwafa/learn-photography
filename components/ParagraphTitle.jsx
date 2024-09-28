@@ -12,8 +12,13 @@ const ParagraphTitle = ({ value }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginBottom: 20,
   },
-  text: {},
+  text: {
+    fontSize: 24,
+    fontWeight: "bold",
+    lineHeight: 40,
+  },
 });
 
 export default ParagraphTitle;
