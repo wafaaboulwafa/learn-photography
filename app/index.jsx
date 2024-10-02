@@ -8,24 +8,24 @@ const Index = () => {
       <Text style={styles.text}>فهرس المحتويات</Text>
       <Link
         href={{
-          pathname: "chapter01",
+          pathname: "AuthorIntro",
         }}
       >
-        مقدمة
+        مقدمة الكاتب
       </Link>
       <Link
         href={{
-          pathname: "chapter02",
+          pathname: "IntroToPhotography",
         }}
       >
-        مدخل في التصوير
+        مقدمة في التصوير
       </Link>
       <Link
         href={{
-          pathname: "chapter03",
+          pathname: "Composition",
         }}
       >
-        Chapter 3
+        تكوين الصورة
       </Link>
     </View>
   );

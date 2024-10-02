@@ -1,9 +1,9 @@
 import React from "react";
 import { SafeAreaView, StyleSheet, View } from "react-native";
-import ParagraphImage from "./paragraphImage";
-import ParagraphTitle from "./paragraphTitle";
-import Paragraph from "./paragraph";
-import BannerView from "./bannerView";
+import ParagraphImage from "./ParagraphImage";
+import ParagraphTitle from "./ParagraphTitle";
+import Paragraph from "./Paragraph";
+import BannerView from "./BannerView";
 import { ScrollView } from "react-native-gesture-handler";
 
 const Chapter = (chapterContent) => {

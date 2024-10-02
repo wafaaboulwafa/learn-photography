@@ -25,24 +25,24 @@ export default function RootLayout() {
           }}
         />
         <Drawer.Screen
-          name="chapter01"
+          name="AuthorIntro"
           options={{
-            drawerLabel: "مدخل",
-            title: "مدخل",
+            drawerLabel: "مقدمة الكاتب",
+            title: "مقدمة الكاتب",
           }}
         />
         <Drawer.Screen
-          name="chapter02"
+          name="IntroToPhotography"
           options={{
             drawerLabel: "مقدمة في التصوير",
             title: "مقدمة في التصوير",
           }}
         />
         <Drawer.Screen
-          name="chapter03"
+          name="Composition"
           options={{
-            drawerLabel: "مقدمة في التصوير",
-            title: "مقدمة في التصوير",
+            drawerLabel: "تكوين الصورة",
+            title: "تكوين الصورة",
           }}
         />
       </Drawer>
