@@ -1,6 +1,6 @@
 export default {
   id: 3,
-  title: "",
+  title: "تصوير الحيوانات  Animals Photography",
   paragraphs: [
     {
       type: "header",
