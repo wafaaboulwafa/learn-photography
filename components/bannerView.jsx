@@ -23,6 +23,7 @@ const BannerView = () => {
         unitId={adUnitId}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
         requestOptions={{
+          requestNonPersonalizedAdsOnly: false,
           networkExtras: {
             collapsible: "bottom",
           },
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
   container: {
     height: "100%",
     width: "100%",
-    justifyContent: "center",
+    justifyContent: "flex-end",
     alignItems: "center",
   },
 });

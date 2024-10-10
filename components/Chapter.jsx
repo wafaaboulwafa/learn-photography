@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   adsContainer: {
-    height: 100,
+    height: 80,
   },
 });
 

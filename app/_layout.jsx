@@ -1,11 +1,16 @@
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Drawer } from "expo-router/drawer";
-import mobileAds from "react-native-google-mobile-ads";
+import mobileAds, { MaxAdContentRating } from "react-native-google-mobile-ads";
 import { useEffect } from "react";
 
 export default function RootLayout() {
   useEffect(() => {
     (async () => {
+      await mobileAds().setRequestConfiguration({
+        maxAdContentRating: MaxAdContentRating.G,
+        tagForChildDirectedTreatment: false,
+        tagForUnderAgeOfConsent: false,
+      });
       await mobileAds().initialize();
     })();
   });
