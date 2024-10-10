@@ -20,6 +20,7 @@ export default function RootLayout() {
       <Drawer
         screenOptions={{
           drawerPosition: "right",
+          headerTitleAlign: "center",
         }}
       >
         <Drawer.Screen
