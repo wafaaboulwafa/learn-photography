@@ -1,7 +1,10 @@
 export default {
-  id: 1,
   title: "مقدمة الكاتب",
   paragraphs: [
+    {
+      type: "header",
+      value: "مقدمة الكاتب",
+    },
     {
       type: "paragraph",
       value:

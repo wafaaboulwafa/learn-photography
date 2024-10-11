@@ -1,5 +1,4 @@
 export default {
-  id: 2,
   title: "مقدمة في التصوير الفوتوغرافي",
   paragraphs: [
     {

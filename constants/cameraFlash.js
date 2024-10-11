@@ -1,5 +1,4 @@
 export default {
-  id: 3,
   title: "فلاش الكاميرا Camera Flash",
   paragraphs: [
     {

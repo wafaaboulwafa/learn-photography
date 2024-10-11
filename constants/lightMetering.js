@@ -1,5 +1,4 @@
 export default {
-  id: 3,
   title: "مقياس الضوء Light Metering Modes",
   paragraphs: [
     {

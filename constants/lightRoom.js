@@ -1,5 +1,4 @@
 export default {
-  id: 3,
   title: "معالجة الصور ببرنامج لايت روم Light room",
   paragraphs: [
     {

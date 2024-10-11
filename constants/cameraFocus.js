@@ -1,5 +1,4 @@
 export default {
-  id: 3,
   title: "التركيز في الكاميرا Camera Focus",
   paragraphs: [
     {

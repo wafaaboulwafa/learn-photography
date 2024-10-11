@@ -1,6 +1,5 @@
 export default {
-  id: 3,
-  title: "",
+  title: "أنواع و خصائص الضوء Light Properties",
   paragraphs: [
     {
       type: "header",

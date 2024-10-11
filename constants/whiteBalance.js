@@ -1,5 +1,4 @@
 export default {
-  id: 3,
   title: "موازنة اللون الأبيض و درجة حرارة الضوء White Balance",
   paragraphs: [
     {

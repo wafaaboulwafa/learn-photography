@@ -1,5 +1,4 @@
 export default {
-  id: 3,
   title: "التصوير الليلي Night Photography",
   paragraphs: [
     {

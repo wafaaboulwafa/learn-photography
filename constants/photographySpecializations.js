@@ -1,5 +1,4 @@
 export default {
-  id: 3,
   title: "محاور التصوير الفوتوغرافي",
   paragraphs: [
     {
