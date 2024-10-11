@@ -22,7 +22,8 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.wafaaboulwafa.learnphotography",
-      "versionCode": "20000"
+      "versionCode": 20000,
+      "versionName": "2.0.1"
     },
     "web": {
       "favicon": "./assets/favicon.png"
