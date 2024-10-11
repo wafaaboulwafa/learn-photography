@@ -2,6 +2,8 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Drawer } from "expo-router/drawer";
 import mobileAds, { MaxAdContentRating } from "react-native-google-mobile-ads";
 import { useEffect } from "react";
+import { StyleSheet } from "react-native";
+import { StatusBar } from "expo-status-bar";
 
 export default function RootLayout() {
   useEffect(() => {
@@ -21,6 +23,10 @@ export default function RootLayout() {
         screenOptions={{
           drawerPosition: "right",
           headerTitleAlign: "center",
+          headerStyle: styles.headerStyle,
+          headerTintColor: "white",
+          drawerStyle: styles.headerStyle,
+          drawerLabelStyle: styles.drawerItem,
         }}
       >
         <Drawer.Screen
@@ -183,6 +189,16 @@ export default function RootLayout() {
           }}
         />
       </Drawer>
+      <StatusBar style="light" />
     </GestureHandlerRootView>
   );
 }
+
+const styles = StyleSheet.create({
+  headerStyle: {
+    backgroundColor: "rgb(14, 22, 25)",
+  },
+  drawerItem: {
+    color: "white",
+  },
+});

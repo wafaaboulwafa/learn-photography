@@ -19,10 +19,10 @@ const Topic = ({ rec }) => {
 const Index = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>مواضيع الكتاب</Text>
       <ScrollView style={styles.scrollContainer}>
-        {topics.map((r) => (
-          <Topic rec={r} />
+        <Text style={styles.header}>مواضيع الكتاب</Text>
+        {topics.map((r, i) => (
+          <Topic key={i} rec={r} />
         ))}
       </ScrollView>
     </View>
@@ -36,7 +36,9 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 24,
+    fontWeight: "bold",
     textAlign: "center",
+    marginBottom: 10,
   },
   scrollContainer: {
     flexGrow: 1,
@@ -44,8 +46,15 @@ const styles = StyleSheet.create({
   topicContainer: {
     flex: 1,
     margin: 10,
+    borderWidth: 1,
+    padding: 10,
+    borderRadius: 5,
+    borderColor: "white",
+    borderWidth: 1,
+    backgroundColor: "#e6e6e6",
   },
   topicText: {
+    color: "#31f1f1f",
     fontSize: 16,
   },
 });
