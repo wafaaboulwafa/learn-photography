@@ -4,7 +4,7 @@
     "slug": "learn-photography",
     "main": "expo-router/entry",
     "scheme": "com.wafaaboulwafa.learnphotography",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -22,8 +22,7 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.wafaaboulwafa.learnphotography",
-      "versionCode": "20000",
-      "versionName": "2.0.1"
+      "versionCode": "20000"
     },
     "web": {
       "favicon": "./assets/favicon.png"
