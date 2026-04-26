@@ -3,7 +3,7 @@
     "name": "تعلم التصوير الفوتوغرافي",
     "slug": "learn-photography",
     "scheme": "com.wafaaboulwafa.learnphotography",
-    "version": "2.0.1",
+    "version": "3.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -20,7 +20,7 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.wafaaboulwafa.learnphotography",
-      "versionCode": 20000
+      "versionCode": 30000
     },
     "web": {
       "favicon": "./assets/favicon.png"
