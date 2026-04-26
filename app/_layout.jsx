@@ -14,7 +14,11 @@ import BackButton from "../components/BackButton";
 import { initAds } from "../components/AdsInit";
 
 // Keep the native splash visible while we load saved settings.
-SplashScreen.preventAutoHideAsync().catch(() => {});
+// Wrapped in try/catch — on platforms where the splash module is a no-op
+// stub (e.g. web), the call may throw synchronously.
+try {
+  SplashScreen.preventAutoHideAsync()?.catch(() => {});
+} catch {}
 
 function AppShell() {
   const { ready } = useFontSize();
@@ -25,7 +29,9 @@ function AppShell() {
 
   const onLayout = useCallback(() => {
     if (ready) {
-      SplashScreen.hideAsync().catch(() => {});
+      try {
+        SplashScreen.hideAsync()?.catch(() => {});
+      } catch {}
     }
   }, [ready]);
 

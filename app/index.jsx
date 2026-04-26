@@ -44,12 +44,6 @@ const Index = () => {
       >
         <View style={styles.cover}>
           <Text
-            style={[styles.coverEyebrow, { fontSize: 14 * scale }]}
-            selectable={false}
-          >
-            كتاب
-          </Text>
-          <Text
             style={[styles.coverTitle, { fontSize: 28 * scale, lineHeight: 40 * scale }]}
             selectable={false}
           >
@@ -59,6 +53,8 @@ const Index = () => {
           <Text
             style={[styles.coverSubtitle, { fontSize: 15 * scale }]}
             selectable={false}
+            adjustsFontSizeToFit
+            numberOfLines={2}
           >
             دليلك العملي للبدء بالتصوير
           </Text>
@@ -100,17 +96,11 @@ const styles = StyleSheet.create({
   },
   cover: {
     alignItems: "center",
+    alignSelf: "stretch",
     paddingVertical: 28,
     marginBottom: 24,
     borderBottomWidth: 1,
     borderBottomColor: "rgba(58,42,18,0.15)",
-  },
-  coverEyebrow: {
-    fontFamily: SERIF,
-    fontSize: 14,
-    color: "#a17a3a",
-    letterSpacing: 4,
-    marginBottom: 8,
   },
   coverTitle: {
     fontFamily: SERIF,
@@ -119,6 +109,7 @@ const styles = StyleSheet.create({
     color: "#3a2a12",
     textAlign: "center",
     lineHeight: 40,
+    alignSelf: "stretch",
   },
   coverDivider: {
     width: 60,
@@ -133,6 +124,8 @@ const styles = StyleSheet.create({
     color: "#5a4a2a",
     fontStyle: "italic",
     textAlign: "center",
+    alignSelf: "stretch",
+    paddingHorizontal: 8,
   },
   tocHeader: {
     fontFamily: SERIF,
