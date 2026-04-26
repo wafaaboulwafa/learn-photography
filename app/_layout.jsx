@@ -1,7 +1,8 @@
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Drawer } from "expo-router/drawer";
-import { useCallback, useEffect } from "react";
-import { StyleSheet, View } from "react-native";
+import { useEffect, useState } from "react";
+import { StyleSheet } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import * as SplashScreen from "expo-splash-screen";
 import topics from "../constants/topics";
@@ -11,7 +12,12 @@ import {
 } from "../components/FontSizeContext";
 import FontSizeButton from "../components/FontSizeButton";
 import BackButton from "../components/BackButton";
+import AppSplash from "../components/AppSplash";
 import { initAds } from "../components/AdsInit";
+
+// Minimum on-screen time for the in-app splash, regardless of how fast
+// the rest of the app initialises.
+const SPLASH_MIN_MS = 1500;
 
 // Keep the native splash visible while we load saved settings.
 // Wrapped in try/catch — on platforms where the splash module is a no-op
@@ -22,27 +28,27 @@ try {
 
 function AppShell() {
   const { ready } = useFontSize();
+  const [minTimeElapsed, setMinTimeElapsed] = useState(false);
+  const showSplash = !ready || !minTimeElapsed;
 
   useEffect(() => {
     initAds();
+    const t = setTimeout(() => setMinTimeElapsed(true), SPLASH_MIN_MS);
+    // Hand off from the (icon-sized) native splash to our in-app
+    // fullscreen splash as soon as JS is up. Our AppSplash takes over
+    // the whole screen so the user sees a continuous fullscreen image.
+    try {
+      SplashScreen.hideAsync()?.catch(() => {});
+    } catch {}
+    return () => clearTimeout(t);
   }, []);
 
-  const onLayout = useCallback(() => {
-    if (ready) {
-      try {
-        SplashScreen.hideAsync()?.catch(() => {});
-      } catch {}
-    }
-  }, [ready]);
-
-  if (!ready) {
-    // Render nothing visible — the native splash stays on screen until
-    // we hide it on first layout below.
-    return <View style={{ flex: 1 }} />;
+  if (showSplash) {
+    return <AppSplash />;
   }
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }} onLayout={onLayout}>
+    <GestureHandlerRootView style={{ flex: 1 }}>
       <StatusBar style="light" backgroundColor="#3a2a12" translucent={false} />
       <Drawer
         screenOptions={{
@@ -88,9 +94,11 @@ function AppShell() {
 
 export default function RootLayout() {
   return (
-    <FontSizeProvider>
-      <AppShell />
-    </FontSizeProvider>
+    <SafeAreaProvider>
+      <FontSizeProvider>
+        <AppShell />
+      </FontSizeProvider>
+    </SafeAreaProvider>
   );
 }
 
