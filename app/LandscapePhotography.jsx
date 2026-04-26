@@ -1,4 +1,5 @@
 import Chapter from "../components/Chapter";
 import content from "../constants/landscapePhotography";
 
-export default LandscapePhotography = () => Chapter(content);
+const LandscapePhotography = () => Chapter(content);
+export default LandscapePhotography;

@@ -1,4 +1,5 @@
 import Chapter from "../components/Chapter";
 import content from "../constants/lightMetering";
 
-export default LightMetering = () => Chapter(content);
+const LightMetering = () => Chapter(content);
+export default LightMetering;

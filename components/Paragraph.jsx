@@ -1,22 +1,40 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Platform } from "react-native";
+import { useFontSize } from "./FontSizeContext";
 
 const Paragraph = ({ value }) => {
+  const { scale } = useFontSize();
+  const fontSize = 18 * scale;
+  const lineHeight = fontSize * 1.95;
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{value}</Text>
+      <Text
+        style={[
+          styles.text,
+          { fontSize, lineHeight },
+        ]}
+        selectable={false}
+      >
+        {value}
+      </Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    marginBottom: 20,
+    marginBottom: 18,
   },
   text: {
-    fontSize: 18,
-    lineHeight: 35,
+    color: "#2a2418",
+    writingDirection: "rtl",
+    textAlign: "right",
+    fontFamily: Platform.select({
+      ios: "Georgia",
+      android: "serif",
+      default: "serif",
+    }),
   },
 });
 
