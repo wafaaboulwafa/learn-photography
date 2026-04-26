@@ -1,63 +1,76 @@
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Drawer } from "expo-router/drawer";
-import mobileAds, { MaxAdContentRating } from "react-native-google-mobile-ads";
 import { useEffect } from "react";
 import { StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import topics from "../constants/topics";
+import { FontSizeProvider } from "../components/FontSizeContext";
+import FontSizeButton from "../components/FontSizeButton";
+import BackButton from "../components/BackButton";
+import { initAds } from "../components/AdsInit";
 
 export default function RootLayout() {
   useEffect(() => {
-    (async () => {
-      await mobileAds().setRequestConfiguration({
-        maxAdContentRating: MaxAdContentRating.G,
-        tagForChildDirectedTreatment: false,
-        tagForUnderAgeOfConsent: false,
-      });
-      await mobileAds().initialize();
-    })();
-  });
+    initAds();
+  }, []);
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <Drawer
-        screenOptions={{
-          drawerPosition: "right",
-          headerTitleAlign: "center",
-          headerStyle: styles.headerStyle,
-          headerTintColor: "white",
-          drawerStyle: styles.headerStyle,
-          drawerLabelStyle: styles.drawerItem,
-        }}
-      >
-        <Drawer.Screen
-          name="index"
-          options={{
-            drawerLabel: "مواضيع الكتاب",
-            title: "مواضيع الكتاب",
+    <FontSizeProvider>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <Drawer
+          screenOptions={{
+            drawerPosition: "right",
+            headerTitleAlign: "center",
+            headerStyle: styles.headerStyle,
+            headerTintColor: "white",
+            headerTitleStyle: styles.headerTitle,
+            drawerStyle: styles.drawerStyle,
+            drawerLabelStyle: styles.drawerItem,
+            drawerActiveTintColor: "#e4b873",
+            drawerInactiveTintColor: "white",
+            sceneContainerStyle: { backgroundColor: "#f5efe4" },
+            headerLeft: () => <BackButton />,
+            headerRight: () => <FontSizeButton />,
           }}
-        />
-        {topics.map((r, i) => (
+        >
           <Drawer.Screen
-            key={i}
-            name={r.path}
+            name="index"
             options={{
-              drawerLabel: r.title,
-              title: r.title,
+              drawerLabel: "مواضيع الكتاب",
+              title: "مواضيع الكتاب",
+              headerLeft: () => null,
             }}
           />
-        ))}
-      </Drawer>
-      <StatusBar style="light" />
-    </GestureHandlerRootView>
+          {topics.map((r, i) => (
+            <Drawer.Screen
+              key={i}
+              name={r.path}
+              options={{
+                drawerLabel: r.title,
+                title: r.title,
+              }}
+            />
+          ))}
+        </Drawer>
+        <StatusBar style="light" />
+      </GestureHandlerRootView>
+    </FontSizeProvider>
   );
 }
 
 const styles = StyleSheet.create({
   headerStyle: {
-    backgroundColor: "rgb(14, 22, 25)",
+    backgroundColor: "#3a2a12",
+  },
+  headerTitle: {
+    fontWeight: "700",
+    fontSize: 18,
+  },
+  drawerStyle: {
+    backgroundColor: "#0e1619",
   },
   drawerItem: {
     color: "white",
+    fontSize: 15,
   },
 });

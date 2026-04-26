@@ -9,7 +9,11 @@ import { ScrollView } from "react-native-gesture-handler";
 const Chapter = (chapterContent) => {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollContainer}>
+      <ScrollView
+        style={styles.scroll}
+        contentContainerStyle={styles.page}
+        showsVerticalScrollIndicator={false}
+      >
         {chapterContent?.paragraphs &&
           chapterContent.paragraphs.map((r, i) => (
             <React.Fragment key={i}>
@@ -20,10 +24,11 @@ const Chapter = (chapterContent) => {
                 <ParagraphImage key={`i-${i}`} value={r.value} />
               )}
               {r.type === "paragraph" && (
-                <Paragraph key={`h-${i}`} value={r.value} />
+                <Paragraph key={`p-${i}`} value={r.value} />
               )}
             </React.Fragment>
           ))}
+        <View style={styles.endOrnament} />
       </ScrollView>
       <View style={styles.adsContainer}>
         <BannerView />
@@ -35,13 +40,29 @@ const Chapter = (chapterContent) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#f5efe4",
   },
-  scrollContainer: {
-    padding: 20,
-    flexGrow: 1,
+  scroll: {
+    flex: 1,
+  },
+  page: {
+    paddingHorizontal: 22,
+    paddingTop: 24,
+    paddingBottom: 48,
+  },
+  endOrnament: {
+    alignSelf: "center",
+    width: 40,
+    height: 2,
+    backgroundColor: "#a17a3a",
+    marginTop: 24,
+    marginBottom: 8,
+    borderRadius: 1,
+    opacity: 0.6,
   },
   adsContainer: {
     height: 80,
+    backgroundColor: "#0e1619",
   },
 });
 
