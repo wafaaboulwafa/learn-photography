@@ -43,6 +43,7 @@ function AppShell() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }} onLayout={onLayout}>
+      <StatusBar style="light" backgroundColor="#3a2a12" translucent={false} />
       <Drawer
         screenOptions={{
           drawerPosition: "right",
@@ -55,6 +56,9 @@ function AppShell() {
           drawerActiveTintColor: "#e4b873",
           drawerInactiveTintColor: "white",
           sceneContainerStyle: { backgroundColor: "#f5efe4" },
+          statusBarStyle: "light",
+          statusBarBackgroundColor: "#3a2a12",
+          statusBarTranslucent: false,
           headerLeft: () => <BackButton />,
           headerRight: () => <FontSizeButton />,
         }}
@@ -78,7 +82,6 @@ function AppShell() {
           />
         ))}
       </Drawer>
-      <StatusBar style="light" />
     </GestureHandlerRootView>
   );
 }

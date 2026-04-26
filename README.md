@@ -71,10 +71,11 @@ npm run web                   # web preview (ads stubbed)
 ## Build & release
 
 ```bash
-eas build                                         # interactive
-eas build -p android --profile preview            # internal APK
-eas build -p android --profile production         # AAB for Play Store
-eas submit --platform android                     # upload to Play Console
+eas build                                          # interactive
+npx expo run:android                               # local native build & run
+eas build -p android --profile preview             # internal APK
+eas build -p android --profile production          # AAB for Play Store
+eas submit --platform android                      # upload to Play Console
 ```
 
 If the native side gets out of sync after an SDK upgrade:
@@ -90,7 +91,9 @@ npx expo run:android
 adb devices
 adb tcpip 5555
 adb connect <ip_address>:5555
-adb logcat '*:W' | grep learnphotography
+adb logcat
+adb logcat '*:W'.
+adb logcat '*:W'. | grep '<appname>'
 ```
 
 ## License
