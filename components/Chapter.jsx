@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     opacity: 0.6,
   },
   adsContainer: {
-    backgroundColor: "#0e1619",
+    backgroundColor: "transparent",
   },
 });
 

@@ -56,10 +56,10 @@ const styles = StyleSheet.create({
   },
   placeholder: {
     justifyContent: "center",
-    backgroundColor: "#0e1619",
+    backgroundColor: "transparent",
   },
   placeholderText: {
-    color: "rgba(255,255,255,0.5)",
+    color: "rgba(58,42,18,0.4)",
     fontSize: 12,
   },
 });
