@@ -20,32 +20,37 @@ const SCALE = {
 const FontSizeContext = createContext({
   size: "medium",
   scale: 1,
+  ready: false,
   cycle: () => {},
 });
 
 export const FontSizeProvider = ({ children }) => {
   const [size, setSize] = useState("medium");
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     AsyncStorage.getItem(STORAGE_KEY)
       .then((stored) => {
         if (stored && STEPS.includes(stored)) setSize(stored);
       })
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => setReady(true));
   }, []);
 
   useEffect(() => {
+    if (!ready) return;
     AsyncStorage.setItem(STORAGE_KEY, size).catch(() => {});
-  }, [size]);
+  }, [size, ready]);
 
   const value = useMemo(
     () => ({
       size,
       scale: SCALE[size],
+      ready,
       cycle: () =>
         setSize((s) => STEPS[(STEPS.indexOf(s) + 1) % STEPS.length]),
     }),
-    [size]
+    [size, ready]
   );
 
   return (
