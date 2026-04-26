@@ -22,79 +22,59 @@ An Arabic-language photography learning book delivered as a React Native / Expo 
 
 ## Project layout
 
-```
-app/                          expo-router routes
-  _layout.jsx                 Drawer + providers (FontSizeProvider, AdsInit)
-  index.jsx                   Cover + table of contents
-  <Chapter>.jsx               One file per chapter; thin wrapper around Chapter()
-components/
-  Chapter.jsx                 Page container (cream bg, padding, ornaments)
-  Paragraph.jsx               Body text (serif, RTL right-aligned)
-  ParagraphTitle.jsx          Section heading + gold underline
-  ParagraphImage.jsx          Tappable thumbnail with natural aspect ratio
-  ImageViewerModal.jsx        Fullscreen modal with pinch/double-tap zoom
-  FontSizeContext.jsx         Provider; AsyncStorage-backed
-  FontSizeButton.jsx          Header A-/A/A+/A++ control
-  BackButton.jsx              Header back arrow
-  BannerView.jsx              AdMob banner (`.web.jsx` stub for web)
-  AdsInit.native.js           AdMob initialiser (`.web.js` no-op)
-constants/
-  topics.js                   List of all chapters (path + title)
-  <topic>.js                  Per-chapter content data
-                              (array of { type: "header" | "paragraph" | "image", value })
-assets/                       App icons, splash, illustrations
-```
+- **app/** — expo-router routes.
+  - `_layout.jsx` — Drawer plus providers (`FontSizeProvider`, `AdsInit`).
+  - `index.jsx` — Cover and table of contents.
+  - `<Chapter>.jsx` — One file per chapter; a thin wrapper around `Chapter()`.
+- **components/**
+  - `Chapter.jsx` — Page container (cream background, padding, ornaments).
+  - `Paragraph.jsx` — Body text (serif, RTL right-aligned).
+  - `ParagraphTitle.jsx` — Section heading with gold underline.
+  - `ParagraphImage.jsx` — Tappable thumbnail with natural aspect ratio.
+  - `ImageViewerModal.jsx` — Fullscreen modal with pinch and double-tap zoom.
+  - `FontSizeContext.jsx` — Provider, AsyncStorage-backed.
+  - `FontSizeButton.jsx` — Header `A-/A/A+/A++` control.
+  - `BackButton.jsx` — Header back arrow.
+  - `BannerView.jsx` — AdMob banner; the `.web.jsx` sibling renders nothing on web.
+  - `AdsInit.native.js` — AdMob initialiser; the `.web.js` sibling is a no-op.
+- **constants/**
+  - `topics.js` — Single source of truth for the chapter list (path and title).
+  - `<topic>.js` — Per-chapter content as an array of `{ type, value }` records, where `type` is `"header"`, `"paragraph"`, or `"image"`.
+- **assets/** — App icons, splash, illustrations.
 
 ### Adding a new chapter
 
-1. Create `constants/myChapter.js` exporting `{ paragraphs: [...] }`.
-2. Create `app/MyChapter.jsx`:
-   ```jsx
-   import Chapter from "../components/Chapter";
-   import content from "../constants/myChapter";
-   const MyChapter = () => Chapter(content);
-   export default MyChapter;
-   ```
-3. Add `{ path: "MyChapter", title: "..." }` to [`constants/topics.js`](constants/topics.js).
+1. Create `constants/myChapter.js` that default-exports `{ paragraphs: [...] }`.
+2. Create `app/MyChapter.jsx` — a one-line wrapper that imports `Chapter` from `components/Chapter` and `content` from your new constants file, then default-exports a function component returning `Chapter(content)`. Always declare a named `const` first; do **not** use the implicit-global `export default Foo = () => ...` form (it throws under React 19 strict mode).
+3. Add an entry `{ path: "MyChapter", title: "..." }` to [`constants/topics.js`](constants/topics.js) so it appears in the drawer and on the cover.
 
 ## Running locally
 
-```bash
-npm install                   # one-time
-npm run start                 # Expo dev menu (QR/QR-less)
-npm run android               # build & launch on connected Android device/emulator
-npm run web                   # web preview (ads stubbed)
-```
+- `npm install` — one-time install.
+- `npm run start` — Expo dev menu (QR / QR-less).
+- `npm run android` — build and launch on a connected Android device or emulator.
+- `npm run web` — web preview (ads are stubbed).
 
-> Expo Go works for the UI, but **AdMob is a native module** and can only run in a custom dev build or release build (`appOwnership !== "expo"`). The app detects Expo Go and skips ads automatically.
+> Expo Go works for the UI, but **AdMob is a native module** and only runs in a custom dev build or a release build (`appOwnership !== "expo"`). The app detects Expo Go and skips ads automatically.
 
 ## Build & release
 
-```bash
-eas build                                          # interactive
-npx expo run:android                               # local native build & run
-eas build -p android --profile preview             # internal APK
-eas build -p android --profile production          # AAB for Play Store
-eas submit --platform android                      # upload to Play Console
-```
+- `eas build` — interactive.
+- `npx expo run:android` — local native build and run.
+- `eas build -p android --profile preview` — internal APK.
+- `eas build -p android --profile production` — AAB for Play Store.
+- `eas submit --platform android` — upload to Play Console.
 
-If the native side gets out of sync after an SDK upgrade:
-
-```bash
-npx expo prebuild --clean
-npx expo run:android
-```
+If the native side gets out of sync after an SDK upgrade, regenerate it with `npx expo prebuild --clean` followed by `npx expo run:android`.
 
 ## Useful adb commands
 
-```bash
-adb devices
-adb tcpip 5555
-adb connect <ip_address>:5555
-adb logcat
-adb logcat '*:W'.
-adb logcat '*:W'. | grep '<appname>'
-```
+- `adb devices` — list connected devices.
+- `adb tcpip 5555` — switch the USB-connected device to TCP/IP debugging on port 5555.
+- `adb connect <ip_address>:5555` — connect over Wi-Fi.
+- `adb logcat` — stream all logs.
+- `adb logcat '*:W'.` — stream warnings and above.
+- `adb logcat '*:W'. | grep '<appname>'` — filter to your app.
 
 ## License
 
