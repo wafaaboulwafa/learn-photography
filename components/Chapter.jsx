@@ -1,5 +1,6 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import ParagraphImage from "./ParagraphImage";
 import ParagraphTitle from "./ParagraphTitle";
 import Paragraph from "./Paragraph";
@@ -7,8 +8,10 @@ import BannerView from "./BannerView";
 import { ScrollView } from "react-native-gesture-handler";
 
 const Chapter = (chapterContent) => {
+  const insets = useSafeAreaInsets();
+
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <ScrollView
         style={styles.scroll}
         contentContainerStyle={styles.page}
@@ -30,10 +33,15 @@ const Chapter = (chapterContent) => {
           ))}
         <View style={styles.endOrnament} />
       </ScrollView>
-      <View style={styles.adsContainer}>
+      <View
+        style={[
+          styles.adsContainer,
+          { height: 80 + insets.bottom, paddingBottom: insets.bottom },
+        ]}
+      >
         <BannerView />
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -61,7 +69,6 @@ const styles = StyleSheet.create({
     opacity: 0.6,
   },
   adsContainer: {
-    height: 80,
     backgroundColor: "#0e1619",
   },
 });
